@@ -89,10 +89,18 @@ y[y>1]=0
 y
 # -------------------------- 1. Checking Missing Data END ----------------------------------------------------
 
+# -------------------------- 2. Standardize features by removing the mean and scaling to unit variance ----------------------------------------------------
 from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
 scaler.fit(X)
 x = scaler.transform(X)
+# -------------------------- 2. Standardize features by removing the mean and scaling to unit variance END ----------------------------------------------------
+
+# ------------------------ 3. Splitting the Dataset into the Training set and Test set ------------------------------
+from sklearn.model_selection import train_test_split, cross_val_score
+x_train, x_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
+# x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25, random_state=824)
+# ------------------------ 3. Splitting the Dataset into the Training set and Test set END ------------------------------
 # ============================== Data Pre-processing END ===================================================
 
 
@@ -100,17 +108,6 @@ x = scaler.transform(X)
 # -------------------------------------------------------------------------------------------------------------------
 # ------------------------ build traditional models and evaluate the model ------------------------------
 # -------------------------------------------------------------------------------------------------------------------
-
-# ------------------------ 2. Splitting the Dataset into the Training set and Test set ------------------------------
-from sklearn.model_selection import train_test_split, cross_val_score
-x_train, x_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
-# x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25, random_state=824)
-
-
-x_train.shape
-x_test.shape
-y_train.shape
-# ------------------------ 2. Splitting the Dataset into the Training set and Test set END ------------------------------
 
 # ................ (1)Logistic Regression ................
 from sklearn.linear_model import LogisticRegression
@@ -520,8 +517,4 @@ print(metrik.confusion_matrix(y_pred=ypred,y_true=y_test))
 # .......................... SVM END ..........................
 
 # ============================== Feature selection and test END ===================================================
-
-
-
-
 

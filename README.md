@@ -1,2 +1,2 @@
 # Journey-of-Machine-Learning
-Demo of traditional algorithms and neural networks.
+How to use traditional models and neural network models in specific problems.

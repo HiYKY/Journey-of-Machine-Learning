@@ -268,6 +268,7 @@ gbc_valid_specificity = print_report(y_valid,y_valid_preds, thresh)
 # .......................... (9)GradientBoosting END ..........................
 
 # .......................... (10)ExtraTrees ..........................
+# extremely randomized trees,相较于RandomForest进一步增强了随机性.
 from evaluate_metrix import *
 from sklearn.decomposition import PCA
 from sklearn.ensemble import ExtraTreesClassifier
@@ -511,7 +512,6 @@ print(metrik.confusion_matrix(y_pred=ypred,y_true=y_test))
 # .......................... xgboost END ..........................
 
 # .......................... ExtraTrees ..........................
-# extremely randomized trees,相较于RandomForest进一步增强了随机性，
 from sklearn.ensemble import ExtraTreesClassifier
 
 etc = ExtraTreesClassifier(bootstrap=False, criterion="entropy", max_features=1.0,

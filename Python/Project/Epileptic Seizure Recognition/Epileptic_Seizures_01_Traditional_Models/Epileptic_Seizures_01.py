@@ -536,7 +536,7 @@ etc = ExtraTreesClassifier(bootstrap=False, criterion="entropy", max_features=1.
                            min_samples_leaf=3, min_samples_split=20, n_estimators=100)
 etc.fit(x_train_new, y_train)
 
-ypred = xgbc.predict(x_test_new)
+ypred = etc.predict(x_test_new)
 
 print(metrik.accuracy_score(y_pred=ypred,y_true=y_test))
 print(metrik.confusion_matrix(y_pred=ypred,y_true=y_test))

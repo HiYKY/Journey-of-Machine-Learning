@@ -549,7 +549,7 @@ gbc = GradientBoostingClassifier(
     n_estimators=100, learning_rate=1.0, max_depth=3, random_state=69)
 gbc.fit(x_train_new, y_train)
 
-ypred = xgbc.predict(x_test_new)
+ypred = gbc.predict(x_test_new)
 
 print(metrik.accuracy_score(y_pred=ypred,y_true=y_test))
 print(metrik.confusion_matrix(y_pred=ypred,y_true=y_test))
